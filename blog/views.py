@@ -5,14 +5,12 @@ from blog.models import *
 
 menu = [{'title': "STEM", 'url_name': "home"},
         {'title': "Blog", 'url_name': "blog"},
-        {'title': "ABOUT", 'url_name': "about"},
+        {'title': "About", 'url_name': "about"},
         {'title': "Contact", 'url_name': "contact"}]
 
 
 def index(request):
-    posts = Blog.objects.all()
     context = {
-        'posts': posts,
         'menu': menu,
         'title': 'STEM'
     }
@@ -20,7 +18,15 @@ def index(request):
 
 
 def blog(request):
-    return HttpResponse("BLOG")
+    posts = Blog.objects.all()
+    cats = Category.objects.all()
+    context = {
+        'posts': posts,
+        'cats': cats,
+        'menu': menu,
+        'title': 'Blog'
+    }
+    return render(request, "blog/blog.html", context=context)
 
 
 def about(request):
@@ -28,11 +34,23 @@ def about(request):
 
 
 def contact(request):
-    return HttpResponse("CONTACT")
+    return render(request, "blog/contact.html", {"menu": menu, "title": "Contact0000adasda00000"})
 
 
 def show_post(request, post_id):
     return HttpResponse(f"Post = {post_id}")
+
+
+def show_category(request, cat_id):
+    posts = Blog.objects.filter(cat_id=cat_id)
+    cats = Category.objects.all()
+    context = {
+        'posts': posts,
+        'cats': cats,
+        'menu': menu,
+        'title': 'Blog'
+    }
+    return render(request, "blog/blog.html", context=context)
 
 
 def pageNotFound(request, exception):

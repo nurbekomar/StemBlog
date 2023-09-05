@@ -1,0 +1,20 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<a href="{% url  'home' %}">button</a>
+
+<ul>
+    {% for c in cats %}
+    <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
+    {% endfor %}
+    {% for p in posts %}
+    <li>
+        <h3>{{p.title}}</h3>
+        <p>{{p.content}}</p>
+        <a href="{{ p.get_absolute_url }}">read post</a>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock content %}
