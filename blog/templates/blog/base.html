@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +10,15 @@
 </head>
 
 <body>
-    {% block mainmenu %}
-    <ul>
-        {% for m in menu %}
-        <li>{{m}}</li>
-        {% endfor %}
-    </ul>
-    {% endblock mainmenu %}
+    <nav class="container mx-auto">
+        {% block mainmenu %}
+        <ul>
+            {% for m in menu %}
+            <li>{{m}}</li>
+            {% endfor %}
+        </ul>
+        {% endblock mainmenu %}
+    </nav>
 
     {% block content %}
 
