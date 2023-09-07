@@ -6,7 +6,7 @@ from blog.models import *
 menu = [{'title': "STEM", 'url_name': "home"},
         {'title': "Blog", 'url_name': "blog"},
         {'title': "About", 'url_name': "about"},
-        {'title': "Contact", 'url_name': "contact"}]
+        {'title': "Contactoo", 'url_name': "contact"}]
 
 
 def index(request):
@@ -38,7 +38,7 @@ def contact(request):
 
 
 def show_post(request, post_id):
-    return HttpResponse(f"Post = {post_id}")
+    return render(request, "blog/show_post.html", {"menu": menu, "title": "Posts"})
 
 
 def show_category(request, cat_id):
