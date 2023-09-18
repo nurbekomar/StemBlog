@@ -26,7 +26,7 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Блог"
         verbose_name_plural = "Блоги"
-        ordering = ["time_create", "title"]
+        ordering = ["-time_create", "title"]
 
 
 class Category(models.Model):

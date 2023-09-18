@@ -7,6 +7,7 @@ menu = [{'title': "STEM", 'url_name': "home"},
         {'title': "Блог", 'url_name': "blog"},
         {'title': "Автор", 'url_name': "about"},]
 
+
 def index(request):
     context = {
         'menu': menu,
@@ -17,10 +18,8 @@ def index(request):
 
 def blog(request):
     posts = Blog.objects.all()
-    cats = Category.objects.all()
     context = {
         'posts': posts,
-        'cats': cats,
         'menu': menu,
         'title': 'Blog'
     }
