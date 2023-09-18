@@ -4,9 +4,9 @@ from blog.models import *
 # Create your views here.
 
 menu = [{'title': "STEM", 'url_name': "home"},
-        {'title': "Blog", 'url_name': "blog"},
-        {'title': "About", 'url_name': "about"},
-        {'title': "Contactoo", 'url_name': "contact"}]
+        {'title': "Блог", 'url_name': "blog"},
+        {'title': "О нас", 'url_name': "about"},
+        {'title': "Контакты", 'url_name': "contact"}]
 
 
 def index(request):
@@ -31,11 +31,6 @@ def blog(request):
 
 def about(request):
     return render(request, "blog/about.html", {"menu": menu, "title": "About"})
-
-
-def contact(request):
-    return render(request, "blog/contact.html", {"menu": menu, "title": "Contact0000adasda00000"})
-
 
 def show_post(request, post_id):
     return render(request, "blog/show_post.html", {"menu": menu, "title": "Posts"})
