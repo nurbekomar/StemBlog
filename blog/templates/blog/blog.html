@@ -1,20 +1,15 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-<h1>{{title}}</h1>
-<a href="{% url  'home' %}">button</a>
+<div class="my-10">
+    <div class=" grid grid-flow-row gap-8 lg:grid-cols-3 ">
+        {% for p in posts %}
+        <div class="border border-gray-200 rounded-xl p-4">
+            <h1 class="text-2xl font-bold tracking-tight pb-4">{{p.title}}</h1>
+            <span class="">{{p.content | truncatewords:20}}</span>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
-<ul>
-    {% for c in cats %}
-    <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
-    {% endfor %}
-    {% for p in posts %}
-    <li>
-        <h3>{{p.title}}</h3>
-        <p>{{p.content}}</p>
-        <a href="{{ p.get_absolute_url }}">read post</a>
-        <hr>
-    </li>
-    {% endfor %}
-</ul>
 {% endblock content %}
