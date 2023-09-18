@@ -1,6 +1,13 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
+<div>
+    <a href="{% url 'blog' %}">Все категории</a>
+    {% for c in cats %}
+    <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
+    {% endfor %}
+</div>
+
 <div class="my-10">
     <div class=" grid grid-flow-row gap-8 lg:grid-cols-3 ">
         {% for p in posts %}

@@ -20,8 +20,8 @@
     <title>{{title}}</title>
 </head>
 
-<body class="font-mono">
-    <nav class="h-14 flex justify-between items-center px-4 text-xl">
+<body class="font-mono container mx-auto">
+    <nav class="h-14 flex justify-between items-center text-xl">
         <a href="{% url 'home' %}">Nurbek Tech</a>
         {% block mainmenu %}
         <ul>
@@ -30,10 +30,9 @@
             {% endfor %}
         </ul>
         {% endblock mainmenu %}
-        <div>+7 705 700 50 31</div>
     </nav>
 
-    <main class="my-8 container mx-auto">
+    <main class="my-8 ">
         {% block content %}
 
         {% endblock content %}

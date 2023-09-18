@@ -5,9 +5,7 @@ from blog.models import *
 
 menu = [{'title': "STEM", 'url_name': "home"},
         {'title': "Блог", 'url_name': "blog"},
-        {'title': "О нас", 'url_name': "about"},
-        {'title': "Контакты", 'url_name': "contact"}]
-
+        {'title': "Автор", 'url_name': "about"},]
 
 def index(request):
     context = {
@@ -31,6 +29,7 @@ def blog(request):
 
 def about(request):
     return render(request, "blog/about.html", {"menu": menu, "title": "About"})
+
 
 def show_post(request, post_id):
     return render(request, "blog/show_post.html", {"menu": menu, "title": "Posts"})
