@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseNotFound
 from blog.models import *
 # Create your views here.
@@ -30,16 +30,21 @@ def about(request):
     return render(request, "blog/about.html", {"menu": menu, "title": "About"})
 
 
-def show_post(request, post_id):
-    return render(request, "blog/show_post.html", {"menu": menu, "title": "Posts"})
+def show_post(request, post_slug):
+    post = get_object_or_404(Blog, slug=post_slug)
+
+    context = {
+        'post': post,
+        'menu': menu,
+        'title': post.title
+    }
+    return render(request, "blog/show_post.html", context=context)
 
 
 def show_category(request, cat_id):
     posts = Blog.objects.filter(cat_id=cat_id)
-    cats = Category.objects.all()
     context = {
         'posts': posts,
-        'cats': cats,
         'menu': menu,
         'title': 'Blog'
     }

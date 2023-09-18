@@ -4,7 +4,7 @@
 {% block content %}
 
 <div>
-    {% get_categories as categories %}
+    {% getcats as categories %}
     <a href="{% url 'blog' %}">Все категории</a>
     {% for c in categories %}
     <a href="{{ c.get_absolute_url }}">{{c.name}}</a>
