@@ -15,7 +15,7 @@
         {% for p in posts %}
         <div class="border border-gray-200 rounded-xl p-4">
             <h1 class="text-2xl font-bold tracking-tight pb-4">{{p.title}}</h1>
-            <p class="">{{p.content | truncatewords:19}}</p>
+            <p class="">{{p.content | safe | truncatewords:19}}</p>
             <a href="{{ p.get_absolute_url }}"
                 class="pt-3 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black  rounded-lg">
                 Оқу
