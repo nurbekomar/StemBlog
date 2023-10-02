@@ -16,6 +16,15 @@
     <script>
         tailwind.config = {
             theme: {
+                container: {
+                    center: true,
+                    screens: {
+                        sm: '600px',
+                        md: '728px',
+                        lg: '984px',
+                        xl: '1240px',
+                    }
+                },
                 extend: {
                     colors: {
                         clifford: '#da373d',
@@ -27,7 +36,7 @@
     <title>{{title}}</title>
 </head>
 
-<body class="font-mono container mx-auto">
+<body class="container mx-auto font-mono">
     <nav class="h-14 flex justify-between items-center text-xl">
         <a href="{% url 'home' %}">Nurbek Tech</a>
         {% block mainmenu %}
